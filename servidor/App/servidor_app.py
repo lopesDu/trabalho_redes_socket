@@ -18,6 +18,22 @@ class servidor_app:
                 raise RuntimeError("A conexão via socket caiu.")
             totalsent = totalsent + sent
 
+    def listen_multiclient(self, cliente_socket, endereco):
+        cliente = servidor_app(sock=cliente_socket)
+        print(f"[+] Cliente conectado: {endereco}")
+        try:
+            while True:
+                dados = cliente.receive()
+                if not dados:
+                    break
+                print(f"Mensagem de {endereco}: {dados}")
+                resposta = b"resposta do servidor"
+                cliente.send(resposta, len(resposta))
+        except RuntimeError:
+            print(f"[-] Cliente desconectado: {endereco}")
+        finally:
+            cliente_socket.close()
+
     def receive(self):
         # Lê os 4 bytes do prefixo para saber o tamanho da mensagem
         header = b''
@@ -37,5 +53,8 @@ class servidor_app:
             if chunk == b'':
                 raise RuntimeError("A conexão via socket caiu.")
             chunks.append(chunk)
-            bytes_recd = bytes_recd + len(chunk)
+            bytes_recd += len(chunk)
+
         return b''.join(chunks)
+
+
