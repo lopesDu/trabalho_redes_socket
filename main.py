@@ -1,25 +1,20 @@
+import threading
+import servidor.App.servidor_app
 import socket
-from servidor.App.servidor_app import servidor_app
 
 if __name__ == '__main__':
     servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    servidor.bind(("localhost", 12381))
+    servidor.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # evita "porta em uso"
+    servidor.bind(('localhost', 12381))
     servidor.listen(5)
+    print("Servidor aguardando conexões...")
 
-    print("Aguardando conexao...")
+    while True:
+        conn, addr = servidor.accept()  # bloqueia até um cliente conectar
 
-    try:
-        conn, addr = servidor.accept()
-        print(f"Conectado a {addr}")
+        # Cria uma thread exclusiva para esse cliente
+        thread = threading.Thread(target=listen_multiclient, args=(conn, addr))
+        thread.daemon = True  # encerra junto com o programa principal
+        thread.start()
 
-        cliente = servidor_app(sock=conn)
-        msg = "Ola! Conexao estabelecida.".encode("utf-8")
-        cliente.send(msg)  # sem msg_length
-
-        conn.close()
-        servidor.close()
-        print("Servidor encerrado.")
-
-    except KeyboardInterrupt:
-        print("\nServidor encerrado pelo usuario.")
-        servidor.close()
+        print(f"[Threads ativas]: {threading.active_count() - 1}")
