@@ -9,7 +9,6 @@ ARQUIVO_USUARIOS = "usuarios.json"
 
 def carregar_usuarios():
     if not os.path.exists(ARQUIVO_USUARIOS):
-        # Cria o arquivo com um admin padrão na primeira execução
         usuarios_padrao = {
             "admin": hashlib.sha256("admin".encode()).hexdigest(),
             "carlos": hashlib.sha256("123456".encode()).hexdigest(),
@@ -21,28 +20,20 @@ def carregar_usuarios():
     with open(ARQUIVO_USUARIOS, "r") as f:
         return json.load(f)
 
-def salvar_usuarios(usuarios):
-    with open(ARQUIVO_USUARIOS, "w") as f:
-        json.dump(usuarios, f, indent=4)
-
-
 def hash_senha(senha: str) -> str:
     return hashlib.sha256(senha.encode()).hexdigest()
 
 sessoes_ativas = {}
 lock_sessoes = threading.Lock()
 
-
 def usuario_ja_conectado(username):
     with lock_sessoes:
         return username in sessoes_ativas
-
 
 def registrar_sessao(username, endereco):
     with lock_sessoes:
         sessoes_ativas[username] = endereco
     print(f"[+] Sessão registrada: {username} @ {endereco}")
-
 
 def encerrar_sessao(username):
     with lock_sessoes:
@@ -57,11 +48,12 @@ class servidor_app:
         else:
             self.sock = sock
 
-    def iniciar(self, host='', porta=5000):
+    # ── Iniciar servidor ─────────────────
+    def iniciar(self, host='172.22.70.26', porta=5000):
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((host, porta))
         self.sock.listen(5)
-        print(f"[*] Servidor aguardando conexões em {host or '0.0.0.0'}:{porta}")
+        print(f"[*] Servidor aguardando conexões em {host}:{porta}")
 
         try:
             while True:
@@ -79,63 +71,37 @@ class servidor_app:
         finally:
             self.sock.close()
 
-    def send(self, msg, msg_length):
+    # ── Envio ────────────────────────────
+    def send(self, msg: bytes):
+        header = struct.pack('>I', len(msg))
+        dados = header + msg
         totalsent = 0
-        while totalsent < msg_length:
+        while totalsent < len(dados):
             try:
-                sent = self.sock.send(msg[totalsent:])
+                sent = self.sock.send(dados[totalsent:])
                 if sent == 0:
                     raise RuntimeError("A conexão via socket caiu.")
                 totalsent += sent
             except OSError as e:
                 raise RuntimeError(f"Erro ao enviar dados: {e}")
 
-    def listen_multiclient(self, cliente_socket, endereco):
-        cliente = servidor_app(sock=cliente_socket)
-        print(f"[+] Cliente conectado: {endereco}")
-        try:
-            while True:
-                dados = cliente.receive()
-
-                # recebeu nada
-                if not dados:
-                    print(f"[~] Cliente {endereco} encerrou a conexão.")
-                    break
-
-                print(f"[>] Mensagem de {endereco}: {dados}")
-                resposta = b"resposta do servidor"
-                cliente.send(resposta, len(resposta))
-
-        except RuntimeError as e:
-            # Conexão caiu
-            print(f"[!] Conexão encerrada com {endereco}: {e}")
-
-        except OSError as e:
-            # Erro de SO no socket
-            print(f"[x] Erro de socket com {endereco}: {e}")
-
-        finally:
-            # Garante que o socket SEMPRE será fechado, independente do motivo
-            try:
-                cliente_socket.shutdown(socket.SHUT_RDWR)
-            except OSError:
-                pass  # Socket pode já estar fechado pelo lado do cliente
-            cliente_socket.close()
-            print(f"[-] Recursos liberados para: {endereco}")
-
-    def receive(self):
+    # ── Recepção ─────────────────────────
+    def receive(self) -> bytes:
         header = b''
         while len(header) < 4:
             try:
                 parte = self.sock.recv(4 - len(header))
             except OSError as e:
                 raise RuntimeError(f"Erro ao ler header: {e}")
-            # recv retorna b'' quando o cliente fecha a conexão normalmente
             if parte == b'':
                 raise RuntimeError("A conexão via socket caiu.")
             header += parte
 
         msg_length = struct.unpack('>I', header)[0]
+
+        MAX_MSG = 10 * 1024 * 1024
+        if msg_length > MAX_MSG:
+            raise RuntimeError(f"Tamanho inválido: {msg_length} bytes")
 
         chunks = []
         bytes_recd = 0
@@ -143,11 +109,86 @@ class servidor_app:
             try:
                 chunk = self.sock.recv(min(msg_length - bytes_recd, 2048))
             except OSError as e:
-                raise RuntimeError(f"Erro ao ler corpo da mensagem: {e}")
-
+                raise RuntimeError(f"Erro ao ler corpo: {e}")
             if chunk == b'':
-                raise RuntimeError("A conexão via socket caiu durante a leitura.")
+                raise RuntimeError("Conexão caiu durante a leitura.")
             chunks.append(chunk)
             bytes_recd += len(chunk)
 
         return b''.join(chunks)
+
+    # ── Autenticação ─────────────────────
+    def autenticar(self, endereco) -> str | None:
+        usuarios = carregar_usuarios()
+        MAX_TENTATIVAS = 3
+
+        self.send(b"USUARIO:")
+
+        for tentativa in range(1, MAX_TENTATIVAS + 1):
+            try:
+                username = self.receive().decode().strip()
+                self.send(b"SENHA:")
+                senha = self.receive().decode().strip()
+            except RuntimeError:
+                print(f"[!] {endereco} desconectou durante o login.")
+                return None
+
+            if username in usuarios and usuarios[username] == hash_senha(senha):
+                if usuario_ja_conectado(username):
+                    self.send(b"ERRO: Usuario ja conectado em outra sessao.")
+                    print(f"[!] Login duplicado bloqueado: {username}")
+                    return None
+
+                self.send(b"LOGIN_OK")
+                registrar_sessao(username, endereco)
+                return username
+
+            else:
+                restantes = MAX_TENTATIVAS - tentativa
+                if restantes > 0:
+                    self.send(f"ERRO: Credenciais invalidas. Tentativas restantes: {restantes}".encode())
+                    print(f"[!] Tentativa {tentativa}/{MAX_TENTATIVAS} falhou — {endereco}")
+                else:
+                    self.send(b"ERRO: Tentativas esgotadas. Conexao encerrada.")
+                    print(f"[x] {endereco} bloqueado por excesso de tentativas.")
+
+        return None
+
+    # ── Thread por cliente ───────────────
+    def listen_multiclient(self, cliente_socket, endereco):
+        cliente = servidor_app(sock=cliente_socket)
+        print(f"[+] Nova conexão: {endereco}")
+        username = None
+
+        try:
+            # Etapa 1: autenticação obrigatória
+            username = cliente.autenticar(endereco)
+            if username is None:
+                print(f"[-] Acesso negado: {endereco}")
+                return
+
+            # Etapa 2: comunicação autenticada
+            print(f"[✓] {username} autenticado. Sessão iniciada.")
+            while True:
+                dados = cliente.receive()
+                if not dados:
+                    print(f"[~] {username} encerrou a conexão.")
+                    break
+
+                print(f"[>] {username}: {dados.decode()}")
+                resposta = f"[Servidor] Recebido: {dados.decode()}".encode()
+                cliente.send(resposta)
+
+        except RuntimeError as e:
+            print(f"[!] Conexão encerrada ({username or endereco}): {e}")
+        except OSError as e:
+            print(f"[x] Erro de socket ({username or endereco}): {e}")
+        finally:
+            if username:
+                encerrar_sessao(username)
+            try:
+                cliente_socket.shutdown(socket.SHUT_RDWR)
+            except OSError:
+                pass
+            cliente_socket.close()
+            print(f"[-] Recursos liberados: {username or endereco}")
