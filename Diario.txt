@@ -2,9 +2,9 @@ Diario Tecnico
 Redes de Computadores — Trabalho Socket
 Yasmim Faria  |  Carlos Eduardo
 1. Implementacao
-• Atendimento simultâneo de múltiplos clientes;
-• Threads/processos;
+• Login e autenticação do usuario
+• Fizemos criptografia de senha e na primeira etapa, primeiro solicitamos a conexao e depois passamos as credencias caso seja aceita ele permite fazer o login caso nao, ele desconecta do servidor;
 2. Dificuldades
-Apenas relembrar alguns conceitos como threads, alem de ver como faz no python
+• ficamos com duvida se primeiro  conectavamos se passavamos o acesso
 3. Bugs
-O unico bug foi que na hora de desconectar, ele forçou e deu erro, porem é apenas fazer um tratamento no cliente
+nenhum
