@@ -2,24 +2,9 @@ Diario Tecnico
 Redes de Computadores — Trabalho Socket
 Yasmim Faria  |  Carlos Eduardo
 1. Implementacao
-O projeto consiste em uma aplicacao cliente-servidor utilizando sockets TCP em Python. A comunicacao e estabelecida por meio da porta 12381 no localhost.
-    • Criacao do socket TCP (AF_INET, SOCK_STREAM) no servidor
-    • Bind e listen na porta 12381
-    • Classe servidor_app encapsulando os metodos send e receive
-    • Cliente se conecta, recebe a mensagem e exibe via interface grafica Tkinter
-    • Uso de sendall() para garantia de envio completo dos dados
+• Atendimento simultâneo de múltiplos clientes;
+• Threads/processos;
 2. Dificuldades
-Durante o desenvolvimento, foram encontradas as seguintes dificuldades:
-    • Configuracao correta da estrutura de pacotes Python (pastas servidor/App/) e importacoes com caminhos relativos
-    • Entender a diferenca entre recv(n) como limite maximo e o loop necessario para garantia de recebimento completo
-    • Definir corretamente o fluxo de comunicacao: qual lado envia primeiro e qual recebe
-    • Encoding de caracteres especiais (acentos) em literais do tipo bytes em Python
+Apenas relembrar alguns conceitos como threads, alem de ver como faz no python
 3. Bugs
-Bugs identificados e corrigidos ao longo do projeto:
-
-- importacao incorreta do modulo servidor_app por conta da estrutura de pastas.
-- adicionar __init__.py nas pastas e executar o projeto a partir da raiz com python -m servidor.App.main. o metodo send usava um loop manual com msg_length fixo. O cliente ficava esperando dados que nunca chegavam pois o loop nao encerrava corretamente
-- substituir o loop manual por sendall(), que garante o envio completo sem necessidade de controle manual de bytes.
-- uso de caracteres com acento diretamente em literais do tipo bytes (b"Ola!"), o que nao e permitido em Python.
-
-4.Considerações: Apesar de todas as dificuldades foram todas resolvidas
+O unico bug foi que na hora de desconectar, ele forçou e deu erro, porem é apenas fazer um tratamento no cliente
