@@ -5,7 +5,7 @@ if __name__ == '__main__':
     cliente = servidor_app()
 
     try:
-        cliente.sock.connect(('172.22.70.2', 5000))
+        cliente.sock.connect(('172.22.70.26', 5000))
         print("[*] Conectado ao servidor.")
 
         # ── Etapa 1: Login ───────────────────
