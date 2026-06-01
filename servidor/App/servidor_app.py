@@ -136,10 +136,6 @@ class servidor_app:
             header += parte
 
         msg_length = struct.unpack('>I', header)[0]
-        # Proteção contra tamanhos grande de msg
-        MAX_MSG = 10 * 1024 * 1024  # 10 MB
-        if msg_length > MAX_MSG:
-            raise RuntimeError(f"Tamanho de mensagem inválido: {msg_length} bytes")
 
         chunks = []
         bytes_recd = 0
