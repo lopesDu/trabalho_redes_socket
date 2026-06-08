@@ -1,40 +1,89 @@
 import socket
-from servidor.App.servidor_app import servidor_app
+import struct
+import threading
+
+
+def send(sock, msg: bytes):
+    header = struct.pack('>I', len(msg))
+    dados = header + msg
+    totalsent = 0
+    while totalsent < len(dados):
+        sent = sock.send(dados[totalsent:])
+        if sent == 0:
+            raise RuntimeError("Conexão caiu.")
+        totalsent += sent
+
+
+def receive(sock) -> bytes:
+    header = b''
+    while len(header) < 4:
+        parte = sock.recv(4 - len(header))
+        if parte == b'':
+            raise RuntimeError("Conexão caiu.")
+        header += parte
+    msg_length = struct.unpack('>I', header)[0]
+    chunks = []
+    bytes_recd = 0
+    while bytes_recd < msg_length:
+        chunk = sock.recv(min(msg_length - bytes_recd, 2048))
+        if chunk == b'':
+            raise RuntimeError("Conexão caiu durante leitura.")
+        chunks.append(chunk)
+        bytes_recd += len(chunk)
+    return b''.join(chunks)
+
+
+def receber_mensagens(sock):
+    while True:
+        try:
+            resposta = receive(sock)
+            print(f"\n{resposta.decode()}")
+            print("[Você]: ", end="", flush=True)
+        except RuntimeError:
+            print("\n[*] Conexão com o servidor encerrada.")
+            break
+
 
 if __name__ == '__main__':
-    cliente = servidor_app()
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        cliente.sock.connect(('172.22.70.26', 5000))
+        sock.connect(('localhost', 5000))
         print("[*] Conectado ao servidor.")
 
-        # ── Etapa 1: Login ───────────────────
-        solicitacao = cliente.receive().decode()   # recebe "USUARIO:"
+        solicitacao = receive(sock).decode()
         print(f"[?] {solicitacao}")
         username = input("Usuario: ")
-        cliente.send(username.encode())
+        send(sock, username.encode())
 
-        solicitacao = cliente.receive().decode()   # recebe "SENHA:"
+        solicitacao = receive(sock).decode()
         print(f"[?] {solicitacao}")
         senha = input("Senha: ")
-        cliente.send(senha.encode())
+        send(sock, senha.encode())
 
-        resposta_login = cliente.receive().decode()
+        resposta_login = receive(sock).decode()
         print(f"[*] {resposta_login}")
 
-        # Encerra se login falhou
         if not resposta_login.startswith("LOGIN_OK"):
             raise RuntimeError(resposta_login)
 
-        # ── Etapa 2: Comunicação ─────────────
-        while True:
-            msg = input("[Você]: ")
-            if msg.lower() == "sair":
-                break
+        boas_vindas = receive(sock).decode()
+        print(f"[*] {boas_vindas}")
 
-            cliente.send(msg.encode())
-            resposta = cliente.receive()
-            print(f"[Servidor]: {resposta.decode()}")
+        t_recv = threading.Thread(target=receber_mensagens, args=(sock,), daemon=True)
+        t_recv.start()
+
+        print("Comandos: /msg <usuario> <texto>  |  /usuarios  |  /ajuda  |  /sair")
+        while True:
+            try:
+                msg = input("[Você]: ")
+            except EOFError:
+                break
+            if not msg.strip():
+                continue
+            send(sock, msg.encode())
+            if msg.strip().lower() == "/sair":
+                break
 
     except ConnectionRefusedError:
         print("[x] Conexão recusada. O servidor está online?")
@@ -43,5 +92,5 @@ if __name__ == '__main__':
     except OSError as e:
         print(f"[x] Erro de socket: {e}")
     finally:
-        cliente.sock.close()
+        sock.close()
         print("[*] Conexão encerrada.")
