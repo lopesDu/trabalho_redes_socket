@@ -1,21 +1,11 @@
 Diario Tecnico
-Redes de Computadores — Trabalho Socket( Aula 5 — Mensagens Privadas e Comandos do Protocolo)
+Redes de Computadores — Trabalho Socket(Aula 6 — Mensagens privadas, Comandos do protocolo. Logs no servidor enviados e erros.)
 Yasmim Faria  |  Carlos Eduardo
 
 
 1. Implementacao:
-• Adicionado dicionário clientes_conectados para guardar o socket
-  de cada usuário autenticado, permitindo entrega de mensagens privadas.
-• Implementada função processar_comando() que trata os comandos
-  /msg, /usuarios, /ajuda e /sair.
-• Modificado listen_multiclient para detectar comandos (mensagens
-  que começam com /).
-• Adicionada thread de recepção assíncrona no cliente para receber
-  mensagens privadas a qualquer momento.
+• Adição de logs de erros, conexão de interface UI
+• Comandos do protocolo e mensagens privadas.
 
 2. Dificuldades:
-• ModuleNotFoundError ao rodar o cliente. O Python não encontrava
-  o módulo servidor porque o script era executado de dentro de
-  Cliente/App/ em vez da raiz do projeto.
-• O import do servidor dentro do cliente foi removido pois o cliente
-  não precisa da classe do servidor pois usa socket diretamente.
+• Na implementação de hoje não houveram desafios.
