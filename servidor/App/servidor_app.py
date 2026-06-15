@@ -129,11 +129,16 @@ def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app"
     elif comando == "/usuarios":
         with lock_sessoes:
             online = list(sessoes_ativas.keys())
-        log.info("LISTA_USUARIOS | solicitado_por=%s online=%s", remetente, online)
+            log.info("LISTA_USUARIOS | solicitado_por=%s online=%s", remetente, online)
         if online:
             cliente_obj.send(f"[Servidor] Usuarios online: {', '.join(online)}".encode())
         else:
             cliente_obj.send(b"[Servidor] Nenhum usuario online.")
+
+    elif comando == "/listausuarios":
+        with lock_sessoes:
+            online = list(sessoes_ativas.keys())
+            cliente_obj.send(f"[LISTA_USUARIOS]{','.join(online)}".encode())
 
     elif comando == "/msg":
         if len(partes) < 3 or not partes[2].strip():
@@ -142,7 +147,7 @@ def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app"
             return False
 
         destinatario = partes[1]
-        texto        = partes[2]
+        texto = partes[2]
 
         if destinatario == remetente:
             cliente_obj.send(b"[Servidor] Voce nao pode enviar mensagem para si mesmo.")
@@ -196,6 +201,7 @@ class servidor_app:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         else:
             self.sock = sock
+        self.lock_envio = threading.Lock()
 
     # ── Inicialização ─────────────────────────
     def iniciar(self, host: str = '', porta: int = 5000) -> None:
@@ -225,15 +231,16 @@ class servidor_app:
     def send(self, msg: bytes) -> None:
         header    = struct.pack('>I', len(msg))
         dados     = header + msg
-        totalsent = 0
-        while totalsent < len(dados):
-            try:
-                sent = self.sock.send(dados[totalsent:])
-                if sent == 0:
-                    raise RuntimeError("Conexão via socket caiu.")
-                totalsent += sent
-            except OSError as e:
-                raise RuntimeError(f"Erro ao enviar dados: {e}")
+        with self.lock_envio:
+            totalsent = 0
+            while totalsent < len(dados):
+                try:
+                    sent = self.sock.send(dados[totalsent:])
+                    if sent == 0:
+                        raise RuntimeError("Conexão via socket caiu.")
+                    totalsent += sent
+                except OSError as e:
+                    raise RuntimeError(f"Erro ao enviar dados: {e}")
 
     # ── Recepção com prefixo de 4 bytes ───────
     def receive(self) -> bytes:

@@ -1,6 +1,7 @@
 import socket
 import struct
 import threading
+import time
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
 from datetime import datetime
@@ -270,12 +271,13 @@ class JanelaChat(tk.Tk):
         self.withdraw()   # esconde até o login terminar
         self.title("Chat TCP")
         self.configure(bg=COR["bg"])
-        self.minsize(620, 480)
-        self._centralizar(820, 560)
+        self.minsize(700, 480)
+        self._centralizar(900, 560)
         self.protocol("WM_DELETE_WINDOW", self._sair)
 
         self.sock:     socket.socket | None = None
         self.username: str = ""
+        self.lock_envio = threading.Lock()   # protege envios concorrentes no socket
         self._construir_ui()
 
         # abre login
@@ -307,6 +309,31 @@ class JanelaChat(tk.Tk):
         corpo = tk.Frame(self, bg=COR["bg"])
         corpo.pack(fill="both", expand=True, padx=10, pady=(8, 0))
 
+        # painel lateral: usuários online
+        painel_usuarios = tk.Frame(corpo, bg=COR["bg_painel"], width=150)
+        painel_usuarios.pack(side="left", fill="y", padx=(0, 8))
+        painel_usuarios.pack_propagate(False)
+
+        tk.Label(painel_usuarios, text="Usuários online",
+                 font=("Segoe UI", 9, "bold"),
+                 bg=COR["bg_painel"], fg=COR["texto_dim"]
+                 ).pack(anchor="w", padx=8, pady=(8, 4))
+
+        self.lista_usuarios = tk.Listbox(
+            painel_usuarios,
+            bg=COR["bg_entrada"], fg=COR["texto"],
+            selectbackground=COR["acento"], selectforeground=COR["bg"],
+            relief="flat", bd=0, font=("Segoe UI", 10),
+            activestyle="none", highlightthickness=0,
+        )
+        self.lista_usuarios.pack(fill="both", expand=True, padx=8, pady=(0, 4))
+        self.lista_usuarios.bind("<<ListboxSelect>>", self._selecionar_usuario)
+
+        tk.Label(painel_usuarios, text="clique para responder",
+                 font=("Segoe UI", 8),
+                 bg=COR["bg_painel"], fg=COR["texto_dim"]
+                 ).pack(anchor="w", padx=8, pady=(0, 8))
+
         # área de mensagens
         self.area_msgs = scrolledtext.ScrolledText(
             corpo,
@@ -317,7 +344,7 @@ class JanelaChat(tk.Tk):
             wrap="word",
             padx=10, pady=8,
         )
-        self.area_msgs.pack(fill="both", expand=True)
+        self.area_msgs.pack(side="left", fill="both", expand=True)
         self._configurar_tags()
 
         # ── Barra de comandos rápidos ──────────
@@ -397,6 +424,8 @@ class JanelaChat(tk.Tk):
 
         # thread de recepção
         threading.Thread(target=self._receber_loop, daemon=True).start()
+        # thread que mantém a lista de usuários online atualizada
+        threading.Thread(target=self._thread_atualizar_usuarios, daemon=True).start()
 
     # ── Thread de recepção ────────────────────
     def _receber_loop(self):
@@ -414,6 +443,13 @@ class JanelaChat(tk.Tk):
                 break
 
     def _classificar_e_inserir(self, texto: str):
+        # resposta "silenciosa" usada para popular a lista de usuários online
+        if texto.startswith("[LISTA_USUARIOS]"):
+            usuarios_str = texto[len("[LISTA_USUARIOS]"):]
+            usuarios = [u for u in usuarios_str.split(",") if u and u != self.username]
+            self.after(0, lambda: self._atualizar_lista_usuarios(usuarios))
+            return
+
         if "[Privado de " in texto:
             tag = "privado"
             log.info("MSG_PRIVADA_RECEBIDA | %s", texto)
@@ -422,6 +458,40 @@ class JanelaChat(tk.Tk):
         else:
             tag = "normal"
         self.after(0, lambda: self._inserir_msg(texto, tag))
+
+    # ── Lista de usuários online ──────────────
+    def _atualizar_lista_usuarios(self, usuarios: list[str]):
+        self.lista_usuarios.delete(0, "end")
+        for i, usuario in enumerate(sorted(usuarios)):
+            self.lista_usuarios.insert("end", usuario)
+            self.lista_usuarios.itemconfig(i, fg=COR["online"])
+
+    def _selecionar_usuario(self, _event=None):
+        selecao = self.lista_usuarios.curselection()
+        if not selecao:
+            return
+        usuario = self.lista_usuarios.get(selecao[0])
+
+        self.entry_msg.delete(0, "end")
+        self.entry_msg.insert(0, f"/msg {usuario} ")
+        self.entry_msg.icursor("end")
+        self.entry_msg.focus_set()
+        self._atualizar_hint()
+
+        # libera a seleção para poder clicar de novo no mesmo usuário depois
+        self.lista_usuarios.selection_clear(0, "end")
+
+    # ── Thread de atualização periódica ───────
+    def _thread_atualizar_usuarios(self):
+        """A cada poucos segundos, pede ao servidor a lista de usuários
+        online (comando silencioso, não aparece no chat)."""
+        while True:
+            try:
+                with self.lock_envio:
+                    send(self.sock, b"/listausuarios")
+            except (RuntimeError, OSError):
+                break
+            time.sleep(4)
 
     # ── Inserção de mensagens ─────────────────
     def _inserir_msg(self, texto: str, tag: str = "normal"):
@@ -449,7 +519,8 @@ class JanelaChat(tk.Tk):
             return
 
         try:
-            send(self.sock, msg.encode())
+            with self.lock_envio:
+                send(self.sock, msg.encode())
             self.entry_msg.delete(0, "end")
             self.lbl_hint.configure(text="")
 

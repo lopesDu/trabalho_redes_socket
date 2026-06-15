@@ -1,5 +1,4 @@
-from servidor.App.servidor_app import servidor_app
+from servidor.App.dashboard_app import DashboardApp
 
 if __name__ == '__main__':
-    app = servidor_app()
-    app.iniciar()
+    DashboardApp(host='', porta=5000).mainloop()
