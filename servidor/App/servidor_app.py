@@ -13,7 +13,6 @@ from datetime import datetime
 # ══════════════════════════════════════════════
 os.makedirs("logs", exist_ok=True)
 
-# Handler rotacionado: arquivos de até 1 MB, mantém os últimos 5
 _file_handler = logging.handlers.RotatingFileHandler(
     os.path.join("logs", "servidor.log"),
     maxBytes=1_000_000,
@@ -48,8 +47,8 @@ ARQUIVO_USUARIOS = "usuarios.json"
 def carregar_usuarios() -> dict:
     if not os.path.exists(ARQUIVO_USUARIOS):
         usuarios_padrao = {
-            "admin":  hashlib.sha256("admin".encode()).hexdigest(),
-            "carlos": hashlib.sha256("123456".encode()).hexdigest(),
+            "admin":  {"senha": hashlib.sha256("admin".encode()).hexdigest(),  "role": "superuser"},
+            "carlos": {"senha": hashlib.sha256("123456".encode()).hexdigest(), "role": "user"},
         }
         with open(ARQUIVO_USUARIOS, "w") as f:
             json.dump(usuarios_padrao, f, indent=4)
@@ -63,11 +62,16 @@ def hash_senha(senha: str) -> str:
     return hashlib.sha256(senha.encode()).hexdigest()
 
 
+def is_superuser(username: str) -> bool:
+    usuarios = carregar_usuarios()
+    return usuarios.get(username, {}).get("role") == "superuser"
+
+
 # ══════════════════════════════════════════════
 #  Gerenciamento de sessões ativas
 # ══════════════════════════════════════════════
-sessoes_ativas: dict[str, tuple]   = {}   # username → endereço
-clientes_conectados: dict[str, "servidor_app"] = {}   # username → objeto
+sessoes_ativas: dict[str, tuple] = {}
+clientes_conectados: dict[str, "servidor_app"] = {}
 lock_sessoes = threading.Lock()
 
 
@@ -101,7 +105,9 @@ AJUDA = (
     "  /msg <usuario> <texto>  — envia mensagem privada\n"
     "  /usuarios               — lista usuários online\n"
     "  /ajuda                  — exibe esta mensagem\n"
-    "  /sair                   — encerra a conexão"
+    "  /sair                   — encerra a conexão\n"
+    "  /cadastrar <u> <s>      — cadastra novo usuário [superuser]\n"
+    "  /promover <usuario>     — torna usuário superuser [superuser]"
 )
 
 
@@ -138,7 +144,7 @@ def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app"
     elif comando == "/listausuarios":
         with lock_sessoes:
             online = list(sessoes_ativas.keys())
-            cliente_obj.send(f"[LISTA_USUARIOS]{','.join(online)}".encode())
+        cliente_obj.send(f"[LISTA_USUARIOS]{','.join(online)}".encode())
 
     elif comando == "/msg":
         if len(partes) < 3 or not partes[2].strip():
@@ -182,6 +188,61 @@ def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app"
                 "MSG_PRIVADA_ERRO_ENTREGA | de=%s para=%s erro=%s",
                 remetente, destinatario, e,
             )
+
+    elif comando == "/cadastrar":
+        if not is_superuser(remetente):
+            cliente_obj.send(b"[Servidor] Permissao negada. Apenas superusers podem cadastrar usuarios.")
+            log.warning("CADASTRAR_NEGADO | usuario=%s nao e superuser", remetente)
+            return False
+
+        if len(partes) < 3 or not partes[1].strip() or not partes[2].strip():
+            cliente_obj.send(b"[Servidor] Uso: /cadastrar <usuario> <senha>")
+            return False
+
+        novo_user  = partes[1].strip()
+        nova_senha = partes[2].strip()
+        usuarios   = carregar_usuarios()
+
+        if novo_user in usuarios:
+            cliente_obj.send(f"[Servidor] Usuario '{novo_user}' ja existe.".encode())
+            log.warning("CADASTRAR_DUPLICADO | tentativa=%s por=%s", novo_user, remetente)
+            return False
+
+        usuarios[novo_user] = {"senha": hash_senha(nova_senha), "role": "user"}
+        with open(ARQUIVO_USUARIOS, "w") as f:
+            json.dump(usuarios, f, indent=4)
+
+        cliente_obj.send(f"[Servidor] Usuario '{novo_user}' cadastrado com sucesso.".encode())
+        log.info("USUARIO_CADASTRADO | novo=%s por=%s", novo_user, remetente)
+
+    elif comando == "/promover":
+        if not is_superuser(remetente):
+            cliente_obj.send(b"[Servidor] Permissao negada. Apenas superusers podem promover usuarios.")
+            log.warning("PROMOVER_NEGADO | usuario=%s nao e superuser", remetente)
+            return False
+
+        if len(partes) < 2 or not partes[1].strip():
+            cliente_obj.send(b"[Servidor] Uso: /promover <usuario>")
+            return False
+
+        alvo     = partes[1].strip()
+        usuarios = carregar_usuarios()
+
+        if alvo not in usuarios:
+            cliente_obj.send(f"[Servidor] Usuario '{alvo}' nao encontrado.".encode())
+            log.warning("PROMOVER_NAO_ENCONTRADO | alvo=%s por=%s", alvo, remetente)
+            return False
+
+        if usuarios[alvo].get("role") == "superuser":
+            cliente_obj.send(f"[Servidor] '{alvo}' ja e superuser.".encode())
+            return False
+
+        usuarios[alvo]["role"] = "superuser"
+        with open(ARQUIVO_USUARIOS, "w") as f:
+            json.dump(usuarios, f, indent=4)
+
+        cliente_obj.send(f"[Servidor] '{alvo}' agora e superuser.".encode())
+        log.info("USUARIO_PROMOVIDO | alvo=%s por=%s", alvo, remetente)
 
     else:
         cliente_obj.send(
@@ -229,8 +290,8 @@ class servidor_app:
 
     # ── Envio com prefixo de 4 bytes ──────────
     def send(self, msg: bytes) -> None:
-        header    = struct.pack('>I', len(msg))
-        dados     = header + msg
+        header = struct.pack('>I', len(msg))
+        dados  = header + msg
         with self.lock_envio:
             totalsent = 0
             while totalsent < len(dados):
@@ -275,7 +336,7 @@ class servidor_app:
 
     # ── Autenticação ──────────────────────────
     def autenticar(self, endereco: tuple) -> str | None:
-        usuarios      = carregar_usuarios()
+        usuarios       = carregar_usuarios()
         MAX_TENTATIVAS = 3
 
         self.send(b"USUARIO:")
@@ -290,7 +351,7 @@ class servidor_app:
                 log.warning("AUTH_DESCONEXAO | endereco=%s:%d durante_login", *endereco)
                 return None
 
-            if username in usuarios and usuarios[username] == hash_senha(senha):
+            if username in usuarios and usuarios[username]["senha"] == hash_senha(senha):
                 if usuario_ja_conectado(username):
                     self.send(b"ERRO: Usuario ja conectado em outra sessao.")
                     log.warning(
@@ -350,7 +411,6 @@ class servidor_app:
                     if encerrar:
                         break
                 else:
-                    # eco simples para mensagens não-comando
                     cliente.send(f"[Servidor] Recebido: {mensagem}".encode())
 
         except RuntimeError as e:

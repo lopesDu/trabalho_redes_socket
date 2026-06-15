@@ -378,7 +378,7 @@ class JanelaChat(tk.Tk):
             relief="flat", font=("Segoe UI", 11), bd=8,
         )
         self.entry_msg.pack(side="left", fill="both", expand=True)
-        self.entry_msg.bind("<Return>", lambda _: self._enviar())
+        self.entry_msg.bind("<Return>",     lambda _: self._enviar())
         self.entry_msg.bind("<KeyRelease>", self._atualizar_hint)
 
         self.lbl_hint = tk.Label(
@@ -560,7 +560,8 @@ class JanelaChat(tk.Tk):
             self.lbl_hint.configure(text="")
 
     # ── Validação local de comandos ───────────
-    COMANDOS = {"/msg", "/usuarios", "/ajuda", "/sair"}
+    COMANDOS = {"/msg", "/usuarios", "/ajuda", "/sair", "/cadastrar", "/promover"}
+
 
     def _validar_comando(self, msg: str) -> str | None:
         if not msg.startswith("/"):
@@ -571,6 +572,8 @@ class JanelaChat(tk.Tk):
             return f"Comando desconhecido: '{cmd}'. Use /ajuda."
         if cmd == "/msg" and (len(partes) < 3 or not partes[2].strip()):
             return "Uso: /msg <usuario> <mensagem>"
+        if cmd == "/cadastrar" and (len(partes) < 3 or not partes[2].strip()):
+            return "Uso: /cadastrar <usuario> <senha>"
         return None
 
     # ── Encerramento ──────────────────────────
