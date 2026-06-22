@@ -96,7 +96,13 @@ def encerrar_sessao(username: str) -> None:
     else:
         log.info("SESSAO_ENCERRADA | usuario=%s (endereço desconhecido)", username)
 
-
+def enviar_para_todos(remetente, mensagem):
+    with lock_sessoes:
+        for usuario, cliente in clientes_conectados.items():
+            try:
+                cliente.send(f"[{remetente}]: {mensagem}".encode())
+            except:
+                pass
 # ══════════════════════════════════════════════
 #  Texto de ajuda
 # ══════════════════════════════════════════════
@@ -411,7 +417,7 @@ class servidor_app:
                     if encerrar:
                         break
                 else:
-                    cliente.send(f"[Servidor] Recebido: {mensagem}".encode())
+                    enviar_para_todos(username, mensagem)
 
         except RuntimeError as e:
             log.error("CONEXAO_ENCERRADA | usuario=%s erro=%s", username or str(endereco), e)
