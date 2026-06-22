@@ -347,7 +347,7 @@ class JanelaChat(tk.Tk):
         self.area_msgs.pack(side="left", fill="both", expand=True)
         self._configurar_tags()
 
-        # ── Barra de comandos rápidos ──────────
+        # ── Barra de comandos rápidos
         barra_cmd = tk.Frame(self, bg=COR["bg"], pady=4)
         barra_cmd.pack(fill="x", padx=10)
 
