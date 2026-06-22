@@ -8,9 +8,8 @@ from datetime import datetime
 import logging
 import os
 
-# ──────────────────────────────────────────────
 #  Log do cliente
-# ──────────────────────────────────────────────
+
 os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
