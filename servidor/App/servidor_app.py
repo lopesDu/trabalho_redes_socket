@@ -295,7 +295,7 @@ class servidor_app:
 
    # ── Inicialização ─────────────────────────
    # iniciar: substituir o bloco try/while
-    def iniciar(self, host: str = '', porta: int = 5000) -> None:
+    def iniciar(self, host: str = '', porta: int = 12390) -> None:
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((host, porta))
         self.sock.listen(5)
