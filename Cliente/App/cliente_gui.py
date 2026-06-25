@@ -559,7 +559,7 @@ class JanelaChat(tk.Tk):
             self.lbl_hint.configure(text="")
 
     # ── Validação local de comandos ───────────
-    COMANDOS = {"/msg", "/usuarios", "/ajuda", "/sair", "/cadastrar", "/promover"}
+    COMANDOS = {"/msg", "/msgpublica" , "/usuarios", "/ajuda", "/sair", "/cadastrar", "/promover"}
 
 
     def _validar_comando(self, msg: str) -> str | None:
