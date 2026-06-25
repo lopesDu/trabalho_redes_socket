@@ -29,20 +29,20 @@ from servidor.App.servidor_app import servidor_app, sessoes_ativas, lock_sessoes
 #  Paleta de cores (mesma do cliente)
 # ══════════════════════════════════════════════
 COR = {
-    "bg":           "#1e1e2e",   # fundo principal
-    "bg_painel":    "#2a2a3e",   # painéis laterais / campos
-    "bg_entrada":   "#313145",   # campo de texto
-    "borda":        "#44475a",   # bordas sutis
-    "texto":        "#cdd6f4",   # texto principal
-    "texto_dim":    "#6c7086",   # texto secundário / timestamp
-    "servidor":     "#89b4fa",   # mensagens do servidor  (azul)
-    "privado":      "#cba6f7",   # mensagens privadas     (lilás)
-    "enviado":      "#a6e3a1",   # mensagens enviadas     (verde)
-    "erro":         "#f38ba8",   # erros                  (vermelho)
-    "sistema":      "#fab387",   # avisos do sistema      (laranja)
-    "acento":       "#89dceb",   # destaques / botão      (ciano)
-    "acento_hover": "#74c7ec",
-    "online":       "#a6e3a1",   # indicador online
+    "bg": "#ffffff",   # fundo principal — branco puro
+    "bg_painel": "#eaf1fb",   # painéis / cards — azul bem clarinho
+    "bg_entrada": "#dce8f7",   # campos de texto
+    "borda": "#c5d5ee",   # bordas sutis
+    "texto": "#1a3a6b",   # texto principal — azul escuro
+    "texto_dim": "#5a7fb5",   # texto secundário / timestamp
+    "servidor": "#2563eb",   # mensagens do servidor (azul)
+    "privado": "#7c3aed",   # mensagens privadas (lilás)
+    "enviado": "#16a34a",   # mensagens enviadas (verde)
+    "erro": "#dc2626",   # erros (vermelho)
+    "sistema": "#d97706",   # avisos do sistema (âmbar)
+    "acento": "#2563eb",   # destaques / botão (azul)
+    "acento_hover": "#1d4ed8",   # botão hover
+    "online": "#16a34a",   # indicador online (verde)
 }
 
 
@@ -67,7 +67,7 @@ class QueueHandler(logging.Handler):
 class DashboardApp(tk.Tk):
     def __init__(self, host: str = "", porta: int = 5000):
         super().__init__()
-        self.title("Dashboard — Servidor Chat TCP")
+        self.title("Lagoa Digital")
         self.configure(bg=COR["bg"])
         self.minsize(960, 620)
         self._centralizar(1080, 680)
@@ -92,6 +92,7 @@ class DashboardApp(tk.Tk):
 
         self._loop_atualizacao()
 
+
     # ══════════════════════════════════════════
     #  Construção da interface
     # ══════════════════════════════════════════
@@ -106,7 +107,7 @@ class DashboardApp(tk.Tk):
         barra.pack(fill="x")
         barra.pack_propagate(False)
 
-        tk.Label(barra, text="📊  Dashboard — Servidor Chat TCP",
+        tk.Label(barra, text="Lagoa Digital",
                  font=("Segoe UI", 13, "bold"),
                  bg=COR["bg_painel"], fg=COR["texto"]).pack(side="left", padx=16)
 
@@ -120,10 +121,52 @@ class DashboardApp(tk.Tk):
         self.lbl_uptime.pack(side="right", padx=16)
 
         self.lbl_status = tk.Label(barra, text="● iniciando...",
-                                    font=("Segoe UI", 9, "bold"),
-                                    bg=COR["bg_painel"], fg=COR["sistema"])
+                            font=("Segoe UI", 9, "bold"),
+                            bg=COR["bg_painel"], fg=COR["sistema"])
         self.lbl_status.pack(side="right", padx=(0, 4))
 
+        self.btn_parar = tk.Button(
+            barra, text="⏹ Parar",
+            font=("Segoe UI", 9), relief="flat", cursor="hand2",
+            bg=COR["erro"], fg="#ffffff", padx=10, pady=2,
+            command=self._parar_servidor,
+        )
+        self.btn_parar.pack(side="right", padx=(0, 4))
+
+        self.btn_iniciar = tk.Button(
+            barra, text="▶ Iniciar",
+            font=("Segoe UI", 9), relief="flat", cursor="hand2",
+            bg=COR["enviado"], fg="#ffffff", padx=10, pady=2,
+            command=self._iniciar_servidor_novamente,
+            state="disabled",
+        )
+        self.btn_iniciar.pack(side="right", padx=(0, 4))
+
+
+    def _parar_servidor(self) -> None:
+        self.servidor.parar()
+        self.lbl_status.configure(text="● offline", fg=COR["erro"])
+        self.btn_parar.configure(state="disabled")
+        self.btn_iniciar.configure(state="normal")
+
+    def _iniciar_servidor_novamente(self) -> None:
+        # recria o socket (o anterior foi fechado)
+        self.servidor = servidor_app()
+        self.lbl_status.configure(text="● iniciando...", fg=COR["sistema"])
+        self.btn_iniciar.configure(state="disabled")
+        self.btn_parar.configure(state="normal")
+
+        def _executar() -> None:
+            try:
+                self.after(0, lambda: self.lbl_status.configure(
+                    text="● online", fg=COR["online"]))
+                self.servidor.iniciar(self.host, self.porta)
+            except OSError as e:
+                msg = str(e)
+                self.after(0, lambda: self.lbl_status.configure(
+                    text=f"● offline - servidor desconectado)", fg=COR["erro"]))
+
+        threading.Thread(target=_executar, daemon=True).start()
     # ── Cards de estatísticas ──────────────────
     def _construir_cards(self) -> None:
         frame = tk.Frame(self, bg=COR["bg"])

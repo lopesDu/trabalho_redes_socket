@@ -291,30 +291,58 @@ class servidor_app:
         else:
             self.sock = sock
         self.lock_envio = threading.Lock()
+        self._rodando = threading.Event()
 
-    # ── Inicialização ─────────────────────────
+   # ── Inicialização ─────────────────────────
+   # iniciar: substituir o bloco try/while
     def iniciar(self, host: str = '', porta: int = 5000) -> None:
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((host, porta))
         self.sock.listen(5)
+        self.sock.settimeout(1.0) # permite checar _rodando a cada 1s
+        self._rodando.set()
         log.info("SERVIDOR_INICIADO | host=%s porta=%d", host or "0.0.0.0", porta)
 
         try:
-            while True:
-                conn, addr = self.sock.accept()
+            while self._rodando.is_set():
+                try:
+                    conn, addr = self.sock.accept()
+                except socket.timeout:
+                    continue # apenas checa o Event e volta
                 log.info("NOVA_CONEXAO | endereco=%s:%d threads_ativas=%d",
-                         addr[0], addr[1], threading.active_count())
-                thread = threading.Thread(
+                        addr[0], addr[1], threading.active_count())
+                threading.Thread(
                     target=self.listen_multiclient,
                     args=(conn, addr),
                     daemon=True,
-                )
-                thread.start()
+                ).start()
 
         except KeyboardInterrupt:
             log.info("SERVIDOR_ENCERRADO | interrupção manual")
         finally:
             self.sock.close()
+
+    def parar(self) -> None:
+        self._rodando.clear()
+
+        # avisa e desconecta todos os clientes ativos
+        with lock_sessoes:
+            clientes = list(clientes_conectados.values())
+
+        for cliente in clientes:
+            try:
+                cliente.send("[Servidor] O servidor foi encerrado. Até logo!".encode())
+                cliente.sock.shutdown(socket.SHUT_RDWR)
+                cliente.sock.close()
+            except OSError:
+                pass
+
+        try:
+            self.sock.close()
+        except OSError:
+            pass
+
+        log.info("SERVIDOR_PARADO | solicitação via dashboard")
 
     # ── Envio com prefixo de 4 bytes ──────────
     def send(self, msg: bytes) -> None:
