@@ -100,20 +100,28 @@ def enviar_para_todos(remetente, mensagem):
     with lock_sessoes:
         for usuario, cliente in clientes_conectados.items():
             try:
-                cliente.send(f"[{remetente}]: {mensagem}".encode())
+                if usuario == remetente:
+                    cliente.send(f"[MENSAGEM PÚBLICA ENVIADA] {mensagem}".encode())
+                else:
+                    cliente.send(f"[MENSAGEM PÚBLICA] Recebido de {remetente}: {mensagem}".encode())
             except:
                 pass
+
 # ══════════════════════════════════════════════
 #  Texto de ajuda
 # ══════════════════════════════════════════════
 AJUDA = (
-    "Comandos disponíveis:\n"
-    "  /msg <usuario> <texto>  — envia mensagem privada\n"
-    "  /usuarios               — lista usuários online\n"
-    "  /ajuda                  — exibe esta mensagem\n"
-    "  /sair                   — encerra a conexão\n"
-    "  /cadastrar <u> <s>      — cadastra novo usuário [superuser]\n"
-    "  /promover <usuario>     — torna usuário superuser [superuser]"
+    "\n╔═════════════════════════════════════════════════════════════╗\n"
+    "║                    COMANDOS DISPONÍVEIS                     ║\n"
+    "╠═════════════════════════════════════════════════════════════╣\n"
+    "║ /msgpublica <texto>      Envia mensagem pública             ║\n"
+    "║ /msg <usuario> <texto>   Envia mensagem privada             ║\n"
+    "║ /usuarios                Lista usuários online              ║\n"
+    "║ /ajuda                   Exibe esta mensagem                ║\n"
+    "║ /cadastrar <u> <s>       Cadastra usuário (superuser)       ║\n"
+    "║ /promover <usuario>      Promove usuário (superuser)        ║\n"
+    "║ /sair                    Encerra a conexão                  ║\n"
+    "╚═════════════════════════════════════════════════════════════╝"
 )
 
 
@@ -194,6 +202,20 @@ def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app"
                 "MSG_PRIVADA_ERRO_ENTREGA | de=%s para=%s erro=%s",
                 remetente, destinatario, e,
             )
+    elif comando == "/msgpublica":
+        if len(partes) < 2:
+            cliente_obj.send(b"[Servidor] Uso: /msgpublica <mensagem>")
+            return False
+
+        texto = mensagem[len("/msgpublica"):].strip()
+
+        enviar_para_todos(remetente, texto)
+
+        log.info(
+            "MSG_PUBLICA | remetente=%s mensagem=%s",
+            remetente,
+            texto,
+        )
 
     elif comando == "/cadastrar":
         if not is_superuser(remetente):
@@ -417,7 +439,9 @@ class servidor_app:
                     if encerrar:
                         break
                 else:
-                    enviar_para_todos(username, mensagem)
+                    cliente.send(
+                            b"[Servidor] Mensagem invalida. Utilize /msgpublica <texto> para enviar uma mensagem publica ou /ajuda para ver os comandos."
+                        )
 
         except RuntimeError as e:
             log.error("CONEXAO_ENCERRADA | usuario=%s erro=%s", username or str(endereco), e)

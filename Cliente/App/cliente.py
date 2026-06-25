@@ -152,7 +152,15 @@ def autenticar(sock: socket.socket) -> str:
 # ──────────────────────────────────────────────
 #  Validação local de comandos (feedback rápido)
 # ──────────────────────────────────────────────
-COMANDOS_VALIDOS = {"/msg", "/usuarios", "/ajuda", "/sair", "/cadastrar", "/promover"}
+COMANDOS_VALIDOS = {
+    "/msg",
+    "/msgpublica",
+    "/usuarios",
+    "/ajuda",
+    "/sair",
+    "/cadastrar",
+    "/promover"
+}
 
 def _validar_comando(msg: str) -> str | None:
     """
@@ -174,6 +182,10 @@ def _validar_comando(msg: str) -> str | None:
 
     if cmd == "/cadastrar" and (len(partes) < 3 or not partes[2].strip()):
         return "Uso: /cadastrar <usuario> <senha>"
+
+    if cmd == "/msgpublica":
+        if len(partes) < 2 or not msg.replace("/msgpublica", "", 1).strip():
+            return "Uso: /msgpublica <mensagem>"
 
     return None
 
@@ -203,6 +215,7 @@ def main() -> None:
 
         print("─" * 55)
         print("  Comandos disponíveis:")
+        print("  /msgpublica    <texto>  — mensagem pública")
         print("  /msg <usuario> <texto>  — mensagem privada")
         print("  /usuarios               — usuários online")
         print("  /ajuda                  — ajuda do servidor")
