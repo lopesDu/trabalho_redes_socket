@@ -59,20 +59,20 @@ def receive(sock: socket.socket) -> bytes:
 #  Paleta de cores
 # ──────────────────────────────────────────────
 COR = {
-    "bg":           "#1e1e2e",   # fundo principal
-    "bg_painel":    "#2a2a3e",   # painéis laterais / campos
-    "bg_entrada":   "#313145",   # campo de texto
-    "borda":        "#44475a",   # bordas sutis
-    "texto":        "#cdd6f4",   # texto principal
-    "texto_dim":    "#6c7086",   # texto secundário / timestamp
-    "servidor":     "#89b4fa",   # mensagens do servidor  (azul)
-    "privado":      "#cba6f7",   # mensagens privadas     (lilás)
-    "enviado":      "#a6e3a1",   # mensagens enviadas     (verde)
-    "erro":         "#f38ba8",   # erros                  (vermelho)
-    "sistema":      "#fab387",   # avisos do sistema      (laranja)
-    "acento":       "#89dceb",   # destaques / botão      (ciano)
-    "acento_hover": "#74c7ec",
-    "online":       "#a6e3a1",   # indicador online
+    "bg": "#ffffff",   # fundo principal — branco puro
+    "bg_painel": "#eaf1fb",   # painéis / cards — azul bem clarinho
+    "bg_entrada": "#dce8f7",   # campos de texto
+    "borda": "#c5d5ee",   # bordas sutis
+    "texto": "#1a3a6b",   # texto principal — azul escuro
+    "texto_dim": "#5a7fb5",   # texto secundário / timestamp
+    "servidor": "#2563eb",   # mensagens do servidor  (azul)
+    "privado": "#7c3aed",   # mensagens privadas (lilás)
+    "enviado": "#16a34a",   # mensagens enviadas (verde)
+    "erro": "#dc2626",   # erros (vermelho)
+    "sistema": "#d97706",   # avisos do sistema (âmbar)
+    "acento": "#2563eb",   # destaques / botão (azul)
+    "acento_hover": "#1d4ed8",   # botão hover
+    "online":"#16a34a",   # indicador online (verde)
 }
 
 
@@ -86,7 +86,7 @@ class TelaLogin(tk.Toplevel):
         self.sock        = None
         self.username    = None
 
-        self.title("Login — Chat TCP")
+        self.title("Login — Lagoa Digital")
         self.resizable(False, False)
         self.configure(bg=COR["bg"])
         self.grab_set()   # modal
@@ -100,9 +100,9 @@ class TelaLogin(tk.Toplevel):
         pad = {"padx": 30, "pady": 8}
 
         # título
-        tk.Label(self, text="💬", font=("Segoe UI Emoji", 36),
+        tk.Label(self, text="🌊", font=("Segoe UI Emoji", 36),
                  bg=COR["bg"], fg=COR["acento"]).pack(pady=(30, 0))
-        tk.Label(self, text="Chat TCP",
+        tk.Label(self, text="Lagoa Digital - Gotinha",
                  font=("Segoe UI", 18, "bold"),
                  bg=COR["bg"], fg=COR["texto"]).pack()
         tk.Label(self, text="Entre com suas credenciais",
@@ -268,7 +268,7 @@ class JanelaChat(tk.Tk):
     def __init__(self):
         super().__init__()
         self.withdraw()   # esconde até o login terminar
-        self.title("Chat TCP")
+        self.title("Lagoa Digital - Gotinha")
         self.configure(bg=COR["bg"])
         self.minsize(700, 480)
         self._centralizar(900, 560)
@@ -290,7 +290,7 @@ class JanelaChat(tk.Tk):
         barra.pack(fill="x")
         barra.pack_propagate(False)
 
-        tk.Label(barra, text="💬  Chat TCP",
+        tk.Label(barra, text="Lagoa Digital - Gotinha",
                  font=("Segoe UI", 12, "bold"),
                  bg=COR["bg_painel"], fg=COR["texto"]).pack(side="left", padx=16)
 
@@ -432,14 +432,18 @@ class JanelaChat(tk.Tk):
             try:
                 dados = receive(self.sock).decode(errors="replace")
                 self._classificar_e_inserir(dados)
-                log.info("RECEBIDO | %s", dados[:120])
             except RuntimeError:
                 self.after(0, lambda: self._inserir_msg(
                     "Conexão com o servidor encerrada.", "erro"))
                 self.after(0, lambda: self.lbl_online.configure(
                     text="● offline", fg=COR["erro"]))
-                log.warning("CONEXAO_ENCERRADA pelo servidor")
+                self.after(0, self._travar_interface)
                 break
+
+    def _travar_interface(self) -> None:
+        self.entry_msg.configure(state="disabled")
+        self.btn_enviar.configure(state="disabled", text="Desconectado")
+        self.sock = None   # garante que _enviar() não tente usar socket fechado
 
     def _classificar_e_inserir(self, texto: str):
         # resposta "silenciosa" usada para popular a lista de usuários online
