@@ -3,7 +3,7 @@ import struct
 import threading
 import time
 import tkinter as tk
-from tkinter import scrolledtext, messagebox
+from tkinter import scrolledtext
 from datetime import datetime
 import logging
 import os
@@ -20,9 +20,7 @@ logging.basicConfig(
 log = logging.getLogger("cliente_gui")
 
 
-# ──────────────────────────────────────────────
 #  Protocolo: envio / recepção com prefixo 4 B
-# ──────────────────────────────────────────────
 def send(sock: socket.socket, msg: bytes) -> None:
     header = struct.pack('>I', len(msg))
     dados = header + msg
@@ -55,9 +53,7 @@ def receive(sock: socket.socket) -> bytes:
     return b''.join(chunks)
 
 
-# ──────────────────────────────────────────────
 #  Paleta de cores
-# ──────────────────────────────────────────────
 COR = {
     "bg": "#ffffff",   # fundo principal — branco puro
     "bg_painel": "#eaf1fb",   # painéis / cards — azul bem clarinho
@@ -76,29 +72,24 @@ COR = {
 }
 
 
-# ══════════════════════════════════════════════
-#  Tela de Login
-# ══════════════════════════════════════════════
+#  Tela de Login, aqui esta sendo contruido a tela de login
 class TelaLogin(tk.Toplevel):
     def __init__(self, master, on_sucesso):
         super().__init__(master)
         self.on_sucesso  = on_sucesso
-        self.sock        = None
-        self.username    = None
-
+        self.sock = None
+        self.username = None
         self.title("Login — Lagoa Digital")
         self.resizable(False, False)
         self.configure(bg=COR["bg"])
         self.grab_set()   # modal
-
         self._construir_ui()
         self._centralizar(360, 420)
         self.protocol("WM_DELETE_WINDOW", self._cancelar)
 
-    # ── Layout ────────────────────────────────
+    #  Layout
     def _construir_ui(self):
         pad = {"padx": 30, "pady": 8}
-
         # título
         tk.Label(self, text="🌊", font=("Segoe UI Emoji", 36),
                  bg=COR["bg"], fg=COR["acento"]).pack(pady=(30, 0))
@@ -117,7 +108,7 @@ class TelaLogin(tk.Toplevel):
                  font=("Segoe UI", 9)).pack(side="left")
         self.entry_host = self._entry(frame_conn, "localhost", width=16)
         self.entry_host.pack(side="left", padx=(0, 6))
-        self.entry_porta = self._entry(frame_conn, "5000", width=6)
+        self.entry_porta = self._entry(frame_conn, "12390", width=6)
         self.entry_porta.pack(side="left")
 
         # usuário
@@ -132,12 +123,10 @@ class TelaLogin(tk.Toplevel):
         self.entry_senha.bind("<Return>", lambda _: self._conectar())
 
         # status
-        self.lbl_status = tk.Label(self, text="",
-                                   font=("Segoe UI", 9),
-                                   bg=COR["bg"], fg=COR["erro"])
+        self.lbl_status = tk.Label(self, text="", font=("Segoe UI", 9), bg=COR["bg"], fg=COR["erro"])
         self.lbl_status.pack()
 
-        # botão
+        # botão - essa parte lembra bem o do flutter
         self.btn = tk.Button(
             self, text="Conectar",
             font=("Segoe UI", 10, "bold"),
@@ -150,12 +139,11 @@ class TelaLogin(tk.Toplevel):
         self.btn.pack(pady=(10, 30))
 
     def _label(self, texto):
-        tk.Label(self, text=texto, anchor="w",
-                 font=("Segoe UI", 9),
-                 bg=COR["bg"], fg=COR["texto_dim"]).pack(padx=30, fill="x")
+        tk.Label(self, text=texto, anchor="w", font=("Segoe UI", 9), bg=COR["bg"], fg=COR["texto_dim"]).pack(padx=30, fill="x")
 
     def _entry(self, parent, placeholder, show="", width=None):
-        e = tk.Entry(parent, bg=COR["bg_entrada"], fg=COR["texto"],
+        e = tk.Entry(
+                     parent, bg=COR["bg_entrada"], fg=COR["texto"],
                      insertbackground=COR["texto"],
                      relief="flat", font=("Segoe UI", 10),
                      show=show, **({"width": width} if width else {}))
@@ -184,15 +172,14 @@ class TelaLogin(tk.Toplevel):
 
     # ── Ação de conectar ──────────────────────
     def _conectar(self):
-        host   = self.entry_host.get().strip()
-        porta  = self.entry_porta.get().strip()
-        user   = self.entry_user.get().strip()
-        senha  = self.entry_senha.get().strip()
+        host = self.entry_host.get().strip()
+        porta = self.entry_porta.get().strip()
+        user = self.entry_user.get().strip()
+        senha = self.entry_senha.get().strip()
 
         if not all([host, porta, user, senha]):
             self._status("Preencha todos os campos.", erro=True)
             return
-
         try:
             porta = int(porta)
         except ValueError:
@@ -201,8 +188,7 @@ class TelaLogin(tk.Toplevel):
 
         self._status("Conectando...", erro=False)
         self.btn.configure(state="disabled", text="Aguarde...")
-        threading.Thread(
-            target=self._thread_login,
+        threading.Thread( target=self._thread_login,
             args=(host, porta, user, senha),
             daemon=True,
         ).start()
@@ -219,13 +205,12 @@ class TelaLogin(tk.Toplevel):
             # "SENHA:"
             receive(sock)
             send(sock, senha.encode())
-
             resposta = receive(sock).decode()
 
             if resposta.startswith("LOGIN_OK"):
                 boas_vindas = receive(sock).decode()
                 log.info("LOGIN_OK | usuario=%s", user)
-                self.sock     = sock
+                self.sock = sock
                 self.username = user
                 self.after(0, lambda: self.on_sucesso(sock, user, boas_vindas))
                 self.after(0, self.destroy)
@@ -261,9 +246,7 @@ class TelaLogin(tk.Toplevel):
         self.geometry(f"{w}x{h}+{x}+{y}")
 
 
-# ══════════════════════════════════════════════
 #  Janela principal do Chat
-# ══════════════════════════════════════════════
 class JanelaChat(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -283,9 +266,9 @@ class JanelaChat(tk.Tk):
         TelaLogin(self, self._pos_login)
         self.mainloop()
 
-    # ── Layout principal ──────────────────────
+    #  Layout principal
     def _construir_ui(self):
-        # ── Barra superior ────────────────────
+        # Barra superior
         barra = tk.Frame(self, bg=COR["bg_painel"], height=44)
         barra.pack(fill="x")
         barra.pack_propagate(False)
@@ -304,7 +287,7 @@ class JanelaChat(tk.Tk):
                                    bg=COR["bg_painel"], fg=COR["erro"])
         self.lbl_online.pack(side="right", padx=(0, 4))
 
-        # ── Corpo ─────────────────────────────
+        # Corpo
         corpo = tk.Frame(self, bg=COR["bg"])
         corpo.pack(fill="both", expand=True, padx=10, pady=(8, 0))
 
@@ -351,8 +334,8 @@ class JanelaChat(tk.Tk):
         barra_cmd.pack(fill="x", padx=10)
 
         for cmd, dica in [("/usuarios", "Quem está online"),
-                          ("/ajuda",    "Ver comandos"),
-                          ("/sair",     "Desconectar")]:
+                          ("/ajuda", "Ver comandos"),
+                          ("/sair", "Desconectar")]:
             tk.Button(
                 barra_cmd, text=cmd,
                 font=("Segoe UI", 8),
@@ -400,13 +383,13 @@ class JanelaChat(tk.Tk):
 
     def _configurar_tags(self):
         """Tags de cor para cada tipo de mensagem."""
-        self.area_msgs.tag_configure("ts",       foreground=COR["texto_dim"],  font=("Consolas", 9))
+        self.area_msgs.tag_configure("ts", foreground=COR["texto_dim"],font=("Consolas", 9))
         self.area_msgs.tag_configure("servidor", foreground=COR["servidor"])
-        self.area_msgs.tag_configure("privado",  foreground=COR["privado"],    font=("Consolas", 10, "bold"))
+        self.area_msgs.tag_configure("privado", foreground=COR["privado"],font=("Consolas", 10, "bold"))
         self.area_msgs.tag_configure("enviado",  foreground=COR["enviado"])
-        self.area_msgs.tag_configure("erro",     foreground=COR["erro"])
-        self.area_msgs.tag_configure("sistema",  foreground=COR["sistema"])
-        self.area_msgs.tag_configure("normal",   foreground=COR["texto"])
+        self.area_msgs.tag_configure("erro", foreground=COR["erro"])
+        self.area_msgs.tag_configure("sistema", foreground=COR["sistema"])
+        self.area_msgs.tag_configure("normal", foreground=COR["texto"])
 
     # ── Pós-login ─────────────────────────────
     def _pos_login(self, sock: socket.socket, username: str, boas_vindas: str):
@@ -445,6 +428,7 @@ class JanelaChat(tk.Tk):
         self.btn_enviar.configure(state="disabled", text="Desconectado")
         self.sock = None   # garante que _enviar() não tente usar socket fechado
 
+    # verificar remetente da mesg
     def _classificar_e_inserir(self, texto: str):
         # resposta "silenciosa" usada para popular a lista de usuários online
         if texto.startswith("[LISTA_USUARIOS]"):
@@ -462,7 +446,7 @@ class JanelaChat(tk.Tk):
             tag = "normal"
         self.after(0, lambda: self._inserir_msg(texto, tag))
 
-    # ── Lista de usuários online ──────────────
+    # Lista de usuários online
     def _atualizar_lista_usuarios(self, usuarios: list[str]):
         self.lista_usuarios.delete(0, "end")
         for i, usuario in enumerate(sorted(usuarios)):
@@ -486,8 +470,7 @@ class JanelaChat(tk.Tk):
 
     # ── Thread de atualização periódica ───────
     def _thread_atualizar_usuarios(self):
-        """A cada poucos segundos, pede ao servidor a lista de usuários
-        online (comando silencioso, não aparece no chat)."""
+        # para atualizar os usuarios, manda um comadinho silencioso para o /listausuarios
         while True:
             try:
                 with self.lock_envio:
@@ -496,7 +479,7 @@ class JanelaChat(tk.Tk):
                 break
             time.sleep(4)
 
-    # ── Inserção de mensagens ─────────────────
+    # Inserção de mensagens
     def _inserir_msg(self, texto: str, tag: str = "normal"):
         ts = datetime.now().strftime("%H:%M:%S")
         self.area_msgs.configure(state="normal")
@@ -510,7 +493,7 @@ class JanelaChat(tk.Tk):
         self.area_msgs.insert("end", "─" * 55 + "\n", "ts")
         self.area_msgs.configure(state="disabled")
 
-    # ── Envio ─────────────────────────────────
+    # Envio
     def _enviar(self):
         msg = self.entry_msg.get().strip()
         if not msg or self.sock is None:
@@ -550,7 +533,7 @@ class JanelaChat(tk.Tk):
         self.entry_msg.insert(0, texto)
         self._enviar()
 
-    # ── Hint de /msg ──────────────────────────
+    # Hint de /msg
     def _atualizar_hint(self, _event=None):
         msg = self.entry_msg.get()
         if msg.startswith("/msg "):
@@ -562,7 +545,7 @@ class JanelaChat(tk.Tk):
         else:
             self.lbl_hint.configure(text="")
 
-    # ── Validação local de comandos ───────────
+    # Validação local de comandos
     COMANDOS = {"/msg", "/msgpublica" , "/usuarios", "/ajuda", "/sair", "/cadastrar", "/promover"}
 
 
@@ -579,7 +562,7 @@ class JanelaChat(tk.Tk):
             return "Uso: /cadastrar <usuario> <senha>"
         return None
 
-    # ── Encerramento ──────────────────────────
+    #  Encerramento
     def _sair(self):
         if self.sock:
             try:
@@ -598,7 +581,5 @@ class JanelaChat(tk.Tk):
         y  = (sh - h) // 2
         self.geometry(f"{w}x{h}+{x}+{y}")
 
-
-# ──────────────────────────────────────────────
 if __name__ == "__main__":
     JanelaChat()

@@ -4,13 +4,9 @@ import threading
 import json
 import os
 import hashlib
-import logging
 import logging.handlers
-from datetime import datetime
 
-# ══════════════════════════════════════════════
 #  Sistema de log centralizado
-# ══════════════════════════════════════════════
 os.makedirs("logs", exist_ok=True)
 
 _file_handler = logging.handlers.RotatingFileHandler(
@@ -38,12 +34,10 @@ logging.basicConfig(level=logging.INFO, handlers=[_file_handler, _console_handle
 log = logging.getLogger("servidor")
 
 
-# ══════════════════════════════════════════════
 #  Persistência de usuários
-# ══════════════════════════════════════════════
 ARQUIVO_USUARIOS = "usuarios.json"
 
-
+# ao carregar ja aplica a criptografia nos user padrao se o arquivo nao existir
 def carregar_usuarios() -> dict:
     if not os.path.exists(ARQUIVO_USUARIOS):
         usuarios_padrao = {
@@ -61,31 +55,25 @@ def carregar_usuarios() -> dict:
 def hash_senha(senha: str) -> str:
     return hashlib.sha256(senha.encode()).hexdigest()
 
-
 def is_superuser(username: str) -> bool:
     usuarios = carregar_usuarios()
     return usuarios.get(username, {}).get("role") == "superuser"
 
 
-# ══════════════════════════════════════════════
 #  Gerenciamento de sessões ativas
-# ══════════════════════════════════════════════
 sessoes_ativas: dict[str, tuple] = {}
 clientes_conectados: dict[str, "servidor_app"] = {}
 lock_sessoes = threading.Lock()
 
-
 def usuario_ja_conectado(username: str) -> bool:
     with lock_sessoes:
         return username in sessoes_ativas
-
 
 def registrar_sessao(username: str, endereco: tuple, cliente_obj: "servidor_app") -> None:
     with lock_sessoes:
         sessoes_ativas[username] = endereco
         clientes_conectados[username] = cliente_obj
     log.info("SESSAO_REGISTRADA | usuario=%s endereco=%s:%d", username, *endereco)
-
 
 def encerrar_sessao(username: str) -> None:
     with lock_sessoes:
@@ -107,9 +95,7 @@ def enviar_para_todos(remetente, mensagem):
             except:
                 pass
 
-# ══════════════════════════════════════════════
 #  Texto de ajuda
-# ══════════════════════════════════════════════
 AJUDA = (
     "\n╔═════════════════════════════════════════════════════════════╗\n"
     "║                    COMANDOS DISPONÍVEIS                     ║\n"
@@ -124,10 +110,7 @@ AJUDA = (
     "╚═════════════════════════════════════════════════════════════╝"
 )
 
-
-# ══════════════════════════════════════════════
 #  Processamento de comandos
-# ══════════════════════════════════════════════
 def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app") -> bool:
     """
     Processa um comando enviado pelo cliente.
@@ -281,9 +264,7 @@ def processar_comando(remetente: str, mensagem: str, cliente_obj: "servidor_app"
     return False
 
 
-# ══════════════════════════════════════════════
 #  Classe principal do servidor
-# ══════════════════════════════════════════════
 class servidor_app:
     def __init__(self, sock: socket.socket | None = None):
         if sock is None:
@@ -293,8 +274,7 @@ class servidor_app:
         self.lock_envio = threading.Lock()
         self._rodando = threading.Event()
 
-   # ── Inicialização ─────────────────────────
-   # iniciar: substituir o bloco try/while
+   #  Inicialização
     def iniciar(self, host: str = '', porta: int = 12390) -> None:
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((host, porta))
@@ -324,7 +304,6 @@ class servidor_app:
 
     def parar(self) -> None:
         self._rodando.clear()
-
         # avisa e desconecta todos os clientes ativos
         with lock_sessoes:
             clientes = list(clientes_conectados.values())
@@ -344,7 +323,7 @@ class servidor_app:
 
         log.info("SERVIDOR_PARADO | solicitação via dashboard")
 
-    # ── Envio com prefixo de 4 bytes ──────────
+    # Envio com prefixo de 4 bytes
     def send(self, msg: bytes) -> None:
         header = struct.pack('>I', len(msg))
         dados  = header + msg
@@ -359,7 +338,7 @@ class servidor_app:
                 except OSError as e:
                     raise RuntimeError(f"Erro ao enviar dados: {e}")
 
-    # ── Recepção com prefixo de 4 bytes ───────
+    #  Recepção com prefixo de 4 bytes
     def receive(self) -> bytes:
         header = b''
         while len(header) < 4:
@@ -390,7 +369,7 @@ class servidor_app:
 
         return b''.join(chunks)
 
-    # ── Autenticação ──────────────────────────
+    # Autenticação
     def autenticar(self, endereco: tuple) -> str | None:
         usuarios       = carregar_usuarios()
         MAX_TENTATIVAS = 3
@@ -436,7 +415,10 @@ class servidor_app:
 
         return None
 
-    # ── Thread por cliente ────────────────────
+    # Thread por cliente
+    # Múltiplas threads podem tentar escrever no mesmo socket ao mesmo tempo.
+    # O threading.Lock() garante que apenas uma por vez use o send() — evita dados embaralhados.
+
     def listen_multiclient(self, cliente_socket: socket.socket, endereco: tuple) -> None:
         cliente  = servidor_app(sock=cliente_socket)
         username = None
