@@ -21,13 +21,10 @@ import tkinter as tk
 from tkinter import ttk, scrolledtext
 from datetime import datetime, timedelta
 
-# Ajuste o import abaixo conforme a estrutura de pacotes do seu projeto.
 from servidor.App.servidor_app import servidor_app, sessoes_ativas, lock_sessoes, log
 
 
-# ══════════════════════════════════════════════
 #  Paleta de cores (mesma do cliente)
-# ══════════════════════════════════════════════
 COR = {
     "bg": "#ffffff",   # fundo principal — branco puro
     "bg_painel": "#eaf1fb",   # painéis / cards — azul bem clarinho
@@ -46,9 +43,7 @@ COR = {
 }
 
 
-# ══════════════════════════════════════════════
 #  Handler de log → fila thread-safe
-# ══════════════════════════════════════════════
 class QueueHandler(logging.Handler):
     """Encaminha cada LogRecord emitido pelo logger 'servidor' para uma fila,
     que a thread principal (tkinter) consome periodicamente."""
@@ -61,9 +56,7 @@ class QueueHandler(logging.Handler):
         self.fila.put(record)
 
 
-# ══════════════════════════════════════════════
 #  Janela principal do Dashboard
-# ══════════════════════════════════════════════
 class DashboardApp(tk.Tk):
     def __init__(self, host: str = "", porta: int = 5000):
         super().__init__()
@@ -72,14 +65,14 @@ class DashboardApp(tk.Tk):
         self.minsize(960, 620)
         self._centralizar(1080, 680)
 
-        self.host  = host or "0.0.0.0"
+        self.host = host or "0.0.0.0"
         self.porta = porta
         self.inicio = datetime.now()
 
-        # ── estatísticas acumuladas ───────────
-        self.total_conexoes        = 0
+        # estatísticas acumuladas
+        self.total_conexoes = 0
         self.mensagens_processadas = 0
-        self.falhas_login          = 0
+        self.falhas_login = 0
         self.usuarios_desde: dict[str, datetime] = {}
 
         self.fila_logs: queue.Queue = queue.Queue()
@@ -93,15 +86,13 @@ class DashboardApp(tk.Tk):
         self._loop_atualizacao()
 
 
-    # ══════════════════════════════════════════
     #  Construção da interface
-    # ══════════════════════════════════════════
     def _construir_ui(self) -> None:
         self._construir_barra_topo()
         self._construir_cards()
         self._construir_corpo()
 
-    # ── Barra superior ─────────────────────────
+    # Barra superior
     def _construir_barra_topo(self) -> None:
         barra = tk.Frame(self, bg=COR["bg_painel"], height=52)
         barra.pack(fill="x")
@@ -173,10 +164,10 @@ class DashboardApp(tk.Tk):
         frame.pack(fill="x", padx=10, pady=10)
 
         especificacoes = [
-            ("ativos",    "Conexões ativas",       COR["online"]),
-            ("total",     "Total de conexões",     COR["acento"]),
+            ("ativos", "Conexões ativas", COR["online"]),
+            ("total", "Total de conexões", COR["acento"]),
             ("mensagens", "Mensagens processadas", COR["servidor"]),
-            ("falhas",    "Tentativas falhas",     COR["erro"]),
+            ("falhas", "Tentativas falhas", COR["erro"]),
         ]
 
         self.cards: dict[str, tk.Label] = {}
@@ -194,7 +185,7 @@ class DashboardApp(tk.Tk):
             lbl_valor.pack(anchor="w", padx=12, pady=(0, 10))
             self.cards[chave] = lbl_valor
 
-    # ── Corpo: tabela de usuários + log ────────
+    # Corpo: tabela de usuários + log
     def _construir_corpo(self) -> None:
         corpo = tk.Frame(self, bg=COR["bg"])
         corpo.pack(fill="both", expand=True, padx=10, pady=(0, 10))
@@ -216,10 +207,10 @@ class DashboardApp(tk.Tk):
         colunas = ("usuario", "endereco", "desde", "duracao")
         self.tabela = ttk.Treeview(painel, columns=colunas, show="headings", height=14)
         for col, titulo, largura in [
-            ("usuario",  "Usuário",         140),
-            ("endereco", "Endereço",        160),
-            ("desde",    "Conectado desde", 120),
-            ("duracao",  "Duração",         100),
+            ("usuario", "Usuário", 140),
+            ("endereco", "Endereço",160),
+            ("desde", "Conectado desde", 120),
+            ("duracao", "Duração", 100),
         ]:
             self.tabela.heading(col, text=titulo)
             self.tabela.column(col, width=largura, anchor="center")
@@ -282,9 +273,7 @@ class DashboardApp(tk.Tk):
             foreground=[("selected", COR["texto"])],
         )
 
-    # ══════════════════════════════════════════
     #  Logging
-    # ══════════════════════════════════════════
     def _registrar_handler_log(self) -> None:
         """Conecta-se ao logger 'servidor' já existente, sem alterar os
         handlers de arquivo/console que ele já possui."""
@@ -292,9 +281,7 @@ class DashboardApp(tk.Tk):
         handler.setLevel(logging.INFO)
         log.addHandler(handler)
 
-    # ══════════════════════════════════════════
     #  Inicialização do servidor (thread separada)
-    # ══════════════════════════════════════════
     def _iniciar_servidor(self) -> None:
         self.servidor = servidor_app()
 
@@ -310,16 +297,14 @@ class DashboardApp(tk.Tk):
 
         threading.Thread(target=_executar, daemon=True).start()
 
-    # ══════════════════════════════════════════
     #  Loop de atualização periódica
-    # ══════════════════════════════════════════
     def _loop_atualizacao(self) -> None:
         self._processar_fila_log()
         self._atualizar_tabela_usuarios()
         self._atualizar_uptime()
         self.after(500, self._loop_atualizacao)
 
-    # ── Processa novas entradas de log ─────────
+    #  Processa novas entradas de log
     def _processar_fila_log(self) -> None:
         while not self.fila_logs.empty():
             record = self.fila_logs.get_nowait()
@@ -353,7 +338,7 @@ class DashboardApp(tk.Tk):
         self.area_log.configure(state="disabled")
         self.area_log.see("end")
 
-    # ── Filtro de nível de log ──────────────────
+    # Filtro de nível de log
     def _filtrar_log(self, nivel: str) -> None:
         self.filtro_atual = nivel
         for n in ("INFO", "WARNING", "ERROR"):
@@ -363,9 +348,7 @@ class DashboardApp(tk.Tk):
         for n, btn in self.filtros.items():
             btn.configure(relief="sunken" if n == nivel else "flat")
 
-    # ══════════════════════════════════════════
     #  Tabela de usuários conectados
-    # ══════════════════════════════════════════
     def _atualizar_tabela_usuarios(self) -> None:
         with lock_sessoes:
             atuais = dict(sessoes_ativas)
@@ -393,18 +376,14 @@ class DashboardApp(tk.Tk):
                 str(timedelta(seconds=int(duracao.total_seconds()))),
             ))
 
-    # ══════════════════════════════════════════
     #  Uptime
-    # ══════════════════════════════════════════
     def _atualizar_uptime(self) -> None:
         delta = datetime.now() - self.inicio
         self.lbl_uptime.configure(
             text=f"Uptime: {timedelta(seconds=int(delta.total_seconds()))}"
         )
 
-    # ══════════════════════════════════════════
     #  Encerramento
-    # ══════════════════════════════════════════
     def _ao_fechar(self) -> None:
         try:
             self.servidor.sock.close()
