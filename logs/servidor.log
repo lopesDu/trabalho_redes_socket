@@ -1,0 +1,776 @@
+2026-06-28 20:15:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:16:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:16:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:17:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:17:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:18:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:18:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:19:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:19:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:20:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:20:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:21:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:21:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:22:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:22:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:23:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:23:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:24:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:24:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:25:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:25:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:26:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:26:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:27:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:27:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:28:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:28:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:29:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:29:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:30:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:30:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:31:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:31:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:32:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:32:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:33:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:33:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:34:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:34:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:35:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:35:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:36:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:36:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:37:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:37:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:38:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:38:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:39:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:39:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:43 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:43 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:47 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:47 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:51 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:51 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:55 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:55 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:40:59 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:40:59 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:03 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:03 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:07 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:07 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:11 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:11 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:15 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:15 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:19 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:19 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:23 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:23 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:27 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:27 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:31 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:31 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:35 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:35 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:39 [INFO    ] MSG_RECEBIDA | usuario=admin tamanho=14 conteudo=/listausuarios
+2026-06-28 20:41:39 [INFO    ] COMANDO | usuario=admin comando=/listausuarios
+2026-06-28 20:41:41 [INFO    ] SERVIDOR_PARADO | solicitação via dashboard
+2026-06-28 20:41:41 [ERROR   ] CONEXAO_ENCERRADA | usuario=admin erro=Conexão via socket caiu.
+2026-06-28 20:41:41 [INFO    ] SESSAO_ENCERRADA | usuario=admin endereco=127.0.0.1:57000
+2026-06-28 20:41:41 [INFO    ] RECURSOS_LIBERADOS | usuario=admin
+2026-06-28 20:54:08 [INFO    ] SERVIDOR_INICIADO | host=0.0.0.0 porta=12390
