@@ -100,7 +100,7 @@ class TelaLogin(tk.Toplevel):
         pad = {"padx": 30, "pady": 8}
 
         # título
-        tk.Label(self, text="💬", font=("Segoe UI Emoji", 36),
+        tk.Label(self, text="🌊", font=("Segoe UI Emoji", 36),
                  bg=COR["bg"], fg=COR["acento"]).pack(pady=(30, 0))
         tk.Label(self, text="Lagoa Digital - Gotinha",
                  font=("Segoe UI", 18, "bold"),
